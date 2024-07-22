@@ -3,6 +3,7 @@
 .pydevproject
 .settings
 lib
+venv
 *.mp3
 sounds/radio/03_DCR/desktop.ini
 sounds/radio/03_DCR/**
