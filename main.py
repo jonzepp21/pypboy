@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#     THIS APPEARS TO BE THE MAIN ENTRY POINT FOR THE CODE
 
 import pygame
 import optparse
