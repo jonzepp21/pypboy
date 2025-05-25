@@ -4,7 +4,7 @@ from collections import deque
 import pygame
 import time
 
-from pygame.constants import HWSURFACE
+from pygame.constants import HWSURFACE  #Stores drawings in the hardware memory instead of software
 import settings
 
 class Engine(object):
