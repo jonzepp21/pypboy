@@ -7,9 +7,11 @@ import sys
 import settings
 
 #Enable use of cached map via "-c True" command
+#THIS IS THE OPTPARSE SECTION WHICH DOES THE MAP SECTION
 parser = optparse.OptionParser(usage='python %prog -c True\nor:\npython %prog -c True', version="0.0.1", prog=sys.argv[0])
 parser.add_option('-c','--cached-map', action="store_true", help="Loads the cached map file stored in map.cache", dest="load_cached", default=False)
 options, args = parser.parse_args()
+
 
 try:
     import RPi.GPIO as GPIO
