@@ -100,7 +100,7 @@ ACTIONS = {
 # Using GPIO.BCM as mode
 # GPIO 23 pin16 reboot
 # GPIO 25 pin 22 blank screen do not use
-GPIO_ACTIONS = {
+gpio_actions = {                    #this needs to be lower case
     #    19: "module_stats", #GPIO 4
     #    26: "module_items", #GPIO 14
     #    16: "module_data", #GPIO 15
