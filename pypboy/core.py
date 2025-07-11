@@ -16,7 +16,7 @@ from pypboy.modules import passcode
 
 if settings.GPIO_AVAILABLE:
     import RPi.GPIO as GPIO
-
+    GPIO.setmode(GPIO.BCM)
 
 class Pypboy(game.core.Engine):
     currentModule = 0
