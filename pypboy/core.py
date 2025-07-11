@@ -33,8 +33,8 @@ class Pypboy(game.core.Engine):
         self.init_modules()
 
         self.gpio_actions = {}
-        # if settings.GPIO_AVAILABLE:
-        # self.init_gpio_controls()
+        if settings.GPIO_AVAILABLE:
+            self.init_gpio_controls()
 
         self.prev_fps_time = 0
 
