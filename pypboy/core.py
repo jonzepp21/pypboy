@@ -5,6 +5,7 @@ import game
 import pypboy.ui
 import settings
 from math import atan2, pi, degrees
+from threading import Thread
 
 from pypboy.modules import data
 from pypboy.modules import items
@@ -13,6 +14,7 @@ from pypboy.modules import boot
 from pypboy.modules import map
 from pypboy.modules import radio
 from pypboy.modules import passcode
+from pypboy.gpio import leds
 
 if settings.GPIO_AVAILABLE:
     import RPi.GPIO as GPIO
@@ -37,6 +39,7 @@ class Pypboy(game.core.Engine):
             self.init_gpio_controls()
 
         self.prev_fps_time = 0
+        leds.setup_leds()  #setup leds, 6 in total
 
     def init_persitant(self):
         # self.background = pygame.image.load('images/background.png')
@@ -157,3 +160,4 @@ class Pypboy(game.core.Engine):
             pygame.mixer.quit()
         except Exception as e:
             print(e)
+
