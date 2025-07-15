@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-#     THIS APPEARS TO BE THE MAIN ENTRY POINT FOR THE CODE
 
 import pygame
 import optparse
 import sys
 import settings
+import rotary_input
+from settings import MODULE_TEXT
 
 #Enable use of cached map via "-c True" command
-#THIS IS THE OPTPARSE SECTION WHICH DOES THE MAP SECTION
 parser = optparse.OptionParser(usage='python %prog -c True\nor:\npython %prog -c True', version="0.0.1", prog=sys.argv[0])
 parser.add_option('-c','--cached-map', action="store_true", help="Loads the cached map file stored in map.cache", dest="load_cached", default=False)
 options, args = parser.parse_args()
-
 
 try:
     import RPi.GPIO as GPIO
@@ -36,4 +35,6 @@ from pypboy.core import Pypboy
 if __name__ == "__main__":
     boy = Pypboy('Pip-Boy 3000 MK IV', settings.WIDTH, settings.HEIGHT)
     print("RUN")
+    rotary_input.start_rotary_thread(boy, MODULE_TEXT)
     boy.run()
+
