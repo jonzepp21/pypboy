@@ -4,8 +4,14 @@ import atexit
 import saved
 import os
 
+try:
+    import RPi.GPIO as GPIO
+    GPIO_AVAILABLE = True
+except ImportError:
+    GPIO_AVAILABLE = False
+
 # Custom
-name = "ZapWizard"
+name = "Jon Zepp"
 
 # SCREEN
 WIDTH = 720
@@ -97,10 +103,12 @@ ACTIONS = {
     pygame.K_KP_MINUS: "zoom_out",
 }
 
+KNOB_LIST = ["knob_1", "knob_2", "knob_3", "knob_4", "knob_5"]
+
 # Using GPIO.BCM as mode
 # GPIO 23 pin16 reboot
 # GPIO 25 pin 22 blank screen do not use
-gpio_actions = {                    #this needs to be lower case
+gpio_actions = {
     #    19: "module_stats", #GPIO 4
     #    26: "module_items", #GPIO 14
     #    16: "module_data", #GPIO 15
@@ -112,6 +120,17 @@ gpio_actions = {                    #this needs to be lower case
     #	25: "dial_up", #GPIO 25
     #    20: "knob_2", #GPIO 24
     #	25: "knob_3" #GPIO 23
+    #these were working test
+    #17: "module_radio",
+    #27: "module_map",
+    #22: "dial_up",
+    #10: "dial_down",
+    #9:  "knob_1",
+    2: "module_stats",
+    10: "module_items",
+    4: "module_data",
+    14: "module_radio",
+    23: "module_map",
 }
 #
 # MAP_ICONS = {
@@ -395,4 +414,5 @@ holotape_generic = "images\inventory\holotape"
 # if time_past:
 #     max_fps = int(1 / time_past)
 #     print("Holotape render took:", time_past, "max fps:", max_fps)
+
 
