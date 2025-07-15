@@ -143,3 +143,15 @@ class SubModule(game.EntityGroup):
             self.paused = False
             if settings.SOUND_ENABLED:
                 self.submodule_change_sfx.play()
+                
+try:
+    import RPi.GPIO as GPIO
+    from pypboy.gpio import power_button
+    
+    GPIO.setwarnings(False)
+    power_button.setup()
+    print("GPIO power switch setup complete")
+    
+except ImportError:
+    print("RPi.GPIO not available during power_button setup. Skipping")
+
